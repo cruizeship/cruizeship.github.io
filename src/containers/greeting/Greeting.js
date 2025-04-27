@@ -37,10 +37,10 @@ export default function Greeting() {
               >
                 {greeting.subTitle}
               </p>
-              <div id="resume" className="empty-div"></div>
+              <div className="empty-div"></div>
               <SocialMedia />
               <div className="down-arrow-div">
-                <a href="#education">
+                <a href="#resume">
                   <i className="fas fa-chevron-down down-arrow" aria-hidden="true"></i>
                 </a>
               </div>
