@@ -1,2 +1,2 @@
 # Personal Website
-I looove bootstrap templates :)
+Built with a React template this time!
