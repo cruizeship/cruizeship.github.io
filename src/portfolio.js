@@ -23,7 +23,7 @@ const greeting = {
   username: "Andrew Cruz",
   title: "Hello! I'm Andrew",
   subTitle: emoji(
-    "I am a student studying computer science at UCLA 🐻. In my free time, I enjoy playing tennis, listening to music, and hanging out with my two younger brothers. I am always excited to work on something new. Feel free to reach out!"
+    "I am a student studying computer science at UCLA 🐻. In my free time, I enjoy playing tennis, listening to music, and hanging out with my two younger brothers. Feel free to reach out!"
   ),
   resumeLink:
     "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
@@ -189,7 +189,7 @@ const workExperiences = {
       desc: "Worked on the Interoperability Framework team in the Enterprise Operations division.",
       descBullets: [
         "Java Spring Boot API + GraphQL development",
-        "DevOps + Deployment with Openshift/Kubernetes"
+        "DevOps + Deployment with AWS/Openshift/Kubernetes"
       ]
     },
     /*{

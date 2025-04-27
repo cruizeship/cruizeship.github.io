@@ -60,6 +60,11 @@ export default function Greeting() {
               </div>*/}
             </div>
           </div>
+          <div className="greeting-image-div">
+            <img
+              src={"/Devlogo.svg"}
+            ></img>
+          </div>
           {/*<div className="greeting-image-div">
             {illustration.animated ? (
               <DisplayLottie animationData={landingPerson} />

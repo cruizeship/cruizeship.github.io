@@ -25,7 +25,7 @@
     "startold": "node fetch.js && react-scripts start",
     "start": "react-scripts start",
     "buildold": "node fetch.js && react-scripts start",
-    "build": "react-scripts build",
+    "build": "node fetch.js && react-scripts build",
     "deploy": "gh-pages -b gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
