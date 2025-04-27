@@ -186,10 +186,10 @@ const workExperiences = {
       company: "Lockheed Martin",
       companylogo: require("./assets/images/Lockheedlogo.png"),
       date: "June 2022 – June 2025",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      desc: "Worked on the Interoperability Framework team in the Enterprise Operations division.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Java Spring Boot API + GraphQL development",
+        "DevOps + Deployment with Openshift/Kubernetes"
       ]
     },
     /*{
