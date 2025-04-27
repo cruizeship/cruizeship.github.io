@@ -70,7 +70,7 @@ function Header() {
             </li>
           {viewBlog && (
             <li>
-              <a href="#blogs">Articles</a>
+              <a href="#articles">Articles</a>
             </li>
           )}
           {viewTalks && (
