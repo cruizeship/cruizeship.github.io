@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.59d830d0.chunk.css",
-    "main.js": "/static/js/main.3f29c18e.chunk.js",
-    "main.js.map": "/static/js/main.3f29c18e.chunk.js.map",
+    "main.js": "/static/js/main.3d12a978.chunk.js",
+    "main.js.map": "/static/js/main.3d12a978.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.acd28682.js",
     "runtime-main.js.map": "/static/js/runtime-main.acd28682.js.map",
     "static/js/2.ea307cba.chunk.js": "/static/js/2.ea307cba.chunk.js",
@@ -14,14 +14,14 @@
     "static/js/4.4e983dd9.chunk.js": "/static/js/4.4e983dd9.chunk.js",
     "static/js/4.4e983dd9.chunk.js.map": "/static/js/4.4e983dd9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.3f671d5465bfbff1dec0bf2a78ca70e3.js": "/precache-manifest.3f671d5465bfbff1dec0bf2a78ca70e3.js",
+    "precache-manifest.8c706d8ba46db9a4c03a15bc7a909f21.js": "/precache-manifest.8c706d8ba46db9a4c03a15bc7a909f21.js",
     "service-worker.js": "/service-worker.js",
     "static/css/3.6b31273f.chunk.css.map": "/static/css/3.6b31273f.chunk.css.map",
     "static/css/4.df9845be.chunk.css.map": "/static/css/4.df9845be.chunk.css.map",
     "static/css/main.59d830d0.chunk.css.map": "/static/css/main.59d830d0.chunk.css.map",
     "static/js/2.ea307cba.chunk.js.LICENSE.txt": "/static/js/2.ea307cba.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/Montserrat-Regular.ee653992.ttf",
-    "static/media/Capitalonelogo.jpg": "/static/media/Capitalonelogo.25669ba6.jpg",
+    "static/media/Applelogo.png": "/static/media/Applelogo.d672cb33.png",
     "static/media/Chellelogo.png": "/static/media/Chellelogo.a3f8d052.png",
     "static/media/HUGlogo.png": "/static/media/HUGlogo.b2d79428.png",
     "static/media/Improperlogo.png": "/static/media/Improperlogo.5d8b2c4d.png",
@@ -41,6 +41,6 @@
     "static/js/runtime-main.acd28682.js",
     "static/js/2.ea307cba.chunk.js",
     "static/css/main.59d830d0.chunk.css",
-    "static/js/main.3f29c18e.chunk.js"
+    "static/js/main.3d12a978.chunk.js"
   ]
 }

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "50772970540a6c13063a7e79cc1fc4d1",
+    "revision": "c898f2e672706978702207d04c79ed24",
     "url": "/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/4.df9845be.chunk.css"
   },
   {
-    "revision": "a79ec066e8843681a30e",
+    "revision": "f35ae0206c79425333d8",
     "url": "/static/css/main.59d830d0.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/4.4e983dd9.chunk.js"
   },
   {
-    "revision": "a79ec066e8843681a30e",
-    "url": "/static/js/main.3f29c18e.chunk.js"
+    "revision": "f35ae0206c79425333d8",
+    "url": "/static/js/main.3d12a978.chunk.js"
   },
   {
     "revision": "23c7c32e101736168c79",
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Agustina.21f233e1.woff"
   },
   {
-    "revision": "25669ba65ca5916f72126c6c5024af89",
-    "url": "/static/media/Capitalonelogo.25669ba6.jpg"
+    "revision": "d672cb33118c242bbd4fa08ac830e093",
+    "url": "/static/media/Applelogo.d672cb33.png"
   },
   {
     "revision": "a3f8d05285b0d272a91d09c49f28c529",
