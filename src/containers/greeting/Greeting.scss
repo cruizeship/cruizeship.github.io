@@ -170,8 +170,20 @@
   margin-top: 15px;
   color: black;
   font-size: 50px;
+  transition: color 0.3s ease;
+}
+
+.dark-temp {
+  margin-top: 15px;
+  color: white;
+  font-size: 50px;
+  transition: color 0.3s ease;
 }
 
 .down-arrow:hover {
-  color: #0064c8;;
+  color: #0064c8;
+}
+
+.dark-temp:hover {
+  color: #0064c8;
 }

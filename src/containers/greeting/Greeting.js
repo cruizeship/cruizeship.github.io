@@ -41,7 +41,11 @@ export default function Greeting() {
               <SocialMedia />
               <div className="down-arrow-div">
                 <a href="#resume">
-                  <i className="fas fa-chevron-down down-arrow" aria-hidden="true"></i>
+                  <i className={
+                  isDark
+                    ? "dark-temp fas fa-chevron-down"
+                    : "fas fa-chevron-down down-arrow"
+                  }></i>
                 </a>
               </div>
               {/*<div className="button-greeting-center-div">

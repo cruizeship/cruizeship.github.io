@@ -34,7 +34,7 @@ const greeting = {
 
 const socialMediaLinks = {
   github: "https://github.com/cruizeship",
-  linkedin: "https://www.linkedin.com/in/andrew-cruz-43b098202/",
+  linkedin: "https://www.linkedin.com/in/andrewcruz3/", //https://www.linkedin.com/in/andrew-cruz-43b098202/
   gmail: "andrew.cruz.2027@gmail.com",
   //gitlab: "https://gitlab.com/saadpasta",
   //facebook: "https://www.facebook.com/saad.pasta7",
@@ -176,10 +176,10 @@ const workExperiences = {
   experience: [
     {
       role: "Software Engineer Intern",
-      company: "Capital One",
-      companylogo: require("./assets/images/Capitalonelogo.jpg"),
+      company: "Apple",
+      companylogo: require("./assets/images/Applelogo.png"),
       date: "Summer 2025",
-      desc: "Mclean, VA Office"
+      desc: "Working on the Apple TV+ team in Los Angeles, CA"
     },
     {
       role: "Software Engineer Intern",
