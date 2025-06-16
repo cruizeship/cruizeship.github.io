@@ -283,7 +283,7 @@ const contractProjects = {
       ]
     },
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Achievement Section
