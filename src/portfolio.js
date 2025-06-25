@@ -179,7 +179,7 @@ const workExperiences = {
       company: "Apple",
       companylogo: require("./assets/images/Applelogo.png"),
       date: "Summer 2025",
-      desc: "Working on the Apple TV+ team in Los Angeles, CA"
+      desc: "Working on the Digital Content Supply team in Los Angeles, CA"
     },
     {
       role: "Software Engineer Intern",
