@@ -179,17 +179,23 @@ const workExperiences = {
       company: "Apple",
       companylogo: require("./assets/images/Applelogo.png"),
       date: "Summer 2025",
-      desc: "Working on the Digital Content Supply team in Los Angeles, CA"
+      desc: "Working on the Digital Content Supply team - Apple Services Engineering",
+      descBullets: [
+        "Full-stack services for AppleTV+, Fitness+, Sports, etc.",
+        "Java Spring Boot + Guice backend development",
+        "SQL + Kafka data streaming and system integration"
+      ]
     },
     {
       role: "Software Engineer Intern",
       company: "Lockheed Martin",
       companylogo: require("./assets/images/Lockheedlogo.png"),
       date: "June 2022 – June 2025",
-      desc: "Worked on the Interoperability Framework team in the Enterprise Operations division.",
+      desc: "Worked on the Interoperability Framework team - Enterprise Operations",
       descBullets: [
+        "Microservices for internal enterprise tooling",
         "Java Spring Boot API + GraphQL development",
-        "DevOps + Deployment with AWS/Openshift/Kubernetes"
+        "DevOps + Infra with AWS/Openshift/Kubernetes"
       ]
     },
     /*{
