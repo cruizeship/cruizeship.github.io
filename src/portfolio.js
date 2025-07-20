@@ -179,7 +179,7 @@ const workExperiences = {
       company: "Apple",
       companylogo: require("./assets/images/Applelogo.png"),
       date: "Summer 2025",
-      desc: "Working on the Digital Content Supply team - Apple Services Engineering",
+      desc: "Working on the Digital Supply Chain team (Apple Services Engineering)",
       descBullets: [
         "Full-stack services for AppleTV+, Fitness+, Sports, etc.",
         "Java Spring Boot + Guice backend development",
@@ -191,7 +191,7 @@ const workExperiences = {
       company: "Lockheed Martin",
       companylogo: require("./assets/images/Lockheedlogo.png"),
       date: "June 2022 – June 2025",
-      desc: "Worked on the Interoperability Framework team - Enterprise Operations",
+      desc: "Worked on the Interoperability Framework team (Enterprise Operations)",
       descBullets: [
         "Microservices for internal enterprise tooling",
         "Java Spring Boot API + GraphQL development",
