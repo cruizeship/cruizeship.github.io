@@ -187,3 +187,15 @@
 .dark-temp:hover {
   color: #0064c8;
 }
+
+.social-media-override {
+  display: flex;
+  justify-content: flex-start !important;
+}
+
+@media (max-width: 768px) {
+  .social-media-override {
+    display: flex;
+    justify-content: center !important;
+  }
+}

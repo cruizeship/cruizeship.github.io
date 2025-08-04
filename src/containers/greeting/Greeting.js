@@ -38,7 +38,7 @@ export default function Greeting() {
                 {greeting.subTitle}
               </p>
               <div className="empty-div"></div>
-              <SocialMedia />
+              <div className="social-media-override"><SocialMedia /></div>
               {/*<div className="down-arrow-div">
                 <a href="#resume">
                   <i className={

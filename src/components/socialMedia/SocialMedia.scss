@@ -3,6 +3,7 @@
 .social-media-div {
   font-size: 2em;
   display: flex;
+  justify-content: center;
 }
 
 .icon-button {
@@ -87,6 +88,5 @@
 @media (max-width: 768px) {
   .social-media-div {
     text-align: center;
-    justify-content: center;
   }
 }
