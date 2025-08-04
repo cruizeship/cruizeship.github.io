@@ -6,7 +6,7 @@ require("dotenv").config();
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const USE_GITHUB_DATA = process.env.USE_GITHUB_DATA;
-const MEDIUM_USERNAME = process.env.MEDIUM_USERNAME;
+const MEDIUM_USERNAME = "andrew.cruz";
 
 const ERR = {
   noUserName:
