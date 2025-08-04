@@ -2,7 +2,6 @@
 
 .social-media-div {
   font-size: 2em;
-  justify-content: center;
   display: flex;
 }
 
@@ -88,5 +87,6 @@
 @media (max-width: 768px) {
   .social-media-div {
     text-align: center;
+    justify-content: center;
   }
 }

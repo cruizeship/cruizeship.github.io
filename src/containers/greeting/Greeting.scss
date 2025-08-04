@@ -54,7 +54,6 @@
   line-height: 1.1;
   color: $textColor !important;
   display: flex;
-  justify-content: center;
 }
 
 .greeting-text-p {
@@ -137,6 +136,7 @@
   .greeting-text {
     font-size: 30px;
     text-align: center;
+    justify-content: center;
   }
   .greeting-text-p {
     font-size: 16px;

@@ -39,7 +39,7 @@ export default function Greeting() {
               </p>
               <div className="empty-div"></div>
               <SocialMedia />
-              <div className="down-arrow-div">
+              {/*<div className="down-arrow-div">
                 <a href="#resume">
                   <i className={
                   isDark
@@ -47,7 +47,7 @@ export default function Greeting() {
                     : "fas fa-chevron-down down-arrow"
                   }></i>
                 </a>
-              </div>
+              </div>*/}
               {/*<div className="button-greeting-center-div">
                 <div className="button-greeting-div">
                   <Button text="Contact me" href={`mailto:${socialMediaLinks.gmail}`} />
