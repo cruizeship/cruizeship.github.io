@@ -181,9 +181,9 @@ const workExperiences = {
       date: "Summer 2025",
       desc: "Working on the Digital Supply Chain team (Apple Services Engineering)",
       descBullets: [
-        "Full-stack services for AppleTV+, Fitness+, Sports, etc.",
-        "Java Spring Boot + Guice backend development",
-        "SQL + Kafka data streaming and system integration"
+        "Full-stack for AppleTV+, Fitness+, Sports, etc.",
+        "Java Spring Boot + Guice REST development",
+        "Kafka data streaming + workflow auditing"
       ]
     },
     {
