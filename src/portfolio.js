@@ -183,7 +183,7 @@ const workExperiences = {
       descBullets: [
         "Full-stack for AppleTV+, Fitness+, Sports, etc.",
         "Java Spring Boot + Guice REST development",
-        "Kafka data streaming + workflow auditing"
+        "React + Typescript workflow auditing tools"
       ]
     },
     {
