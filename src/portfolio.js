@@ -178,7 +178,7 @@ const workExperiences = {
       role: "Software Engineer Intern",
       company: "Apple",
       companylogo: require("./assets/images/Applelogo.png"),
-      date: "Summer 2025",
+      date: "June 2025 - September 2025",
       desc: "Working on the Digital Supply Chain team (Apple Services Engineering)",
       descBullets: [
         "Full-stack for AppleTV+, Fitness+, Sports, etc.",
