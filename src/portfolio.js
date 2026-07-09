@@ -176,10 +176,22 @@ const workExperiences = {
   experience: [
     {
       role: "Software Engineer Intern",
+      company: "Roblox",
+      companylogo: require("./assets/images/Robloxlogo.jpg"),
+      date: "June 2026 - Present",
+      desc: "Working on the Creator Data Services team",
+      descBullets: [
+        "Full-stack for AppleTV+, Fitness+, Sports, etc.",
+        "Java Spring Boot + Guice REST development",
+        "React + Typescript workflow auditing tools"
+      ]
+    },
+    {
+      role: "Software Engineer Intern",
       company: "Apple",
       companylogo: require("./assets/images/Applelogo.png"),
       date: "June 2025 - September 2025",
-      desc: "Working on the Digital Supply Chain team (Apple Services Engineering)",
+      desc: "Worked on the Digital Supply Chain team (Apple Services Engineering)",
       descBullets: [
         "Full-stack for AppleTV+, Fitness+, Sports, etc.",
         "Java Spring Boot + Guice REST development",
