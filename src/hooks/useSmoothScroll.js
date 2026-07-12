@@ -30,7 +30,10 @@ export function useSmoothScroll() {
         block: "start"
       });
 
-      window.history.pushState(null, "", href);
+      // Keep URL hashless so reload uses sessionStorage scroll restore
+      // instead of the browser's native #section jump.
+      const cleanUrl = `${window.location.pathname}${window.location.search}`;
+      window.history.replaceState(null, "", cleanUrl);
     };
 
     document.addEventListener("click", onClick);

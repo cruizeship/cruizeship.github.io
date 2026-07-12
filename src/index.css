@@ -1,10 +1,13 @@
 html {
   scrollbar-gutter: stable;
-  background-color: #101415;
+  background-color: #000000;
+  /* Prevent scroll anchoring from drifting the viewport when content above loads */
+  overflow-anchor: none;
 }
 
 #root {
-  background-color: #101415;
+  background-color: #000000;
+  min-height: 100vh;
 }
 
 body {
@@ -14,17 +17,12 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #101415;
+  background-color: #000000;
   color: #e0e3e5;
+  overflow-anchor: none;
 }
 
 code {
   font-family: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas,
     "Courier New", monospace;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
 }

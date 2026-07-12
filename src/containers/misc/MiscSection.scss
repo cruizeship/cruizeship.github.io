@@ -3,11 +3,11 @@
 .lumina-misc {
   margin-bottom: 64px;
   overflow: visible;
-  overflow-anchor: auto;
+  overflow-anchor: none;
 }
 
 .lumina-misc-header {
-  overflow-anchor: auto;
+  overflow-anchor: none;
   text-align: center;
   padding: 24px 0 32px;
 }
@@ -99,6 +99,9 @@
     display: block;
     width: 100%;
     height: auto;
+    // Reserve space before PNG decode (883×1028 source frames)
+    aspect-ratio: 883 / 1028;
+    object-fit: cover;
     pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;

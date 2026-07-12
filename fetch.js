@@ -142,16 +142,17 @@ if (USE_GITHUB_DATA === "true") {
       }
 
       if (calendar) {
-        fs.writeFile(
-          "./public/contributions.json",
-          JSON.stringify(calendar),
-          function (err) {
-            if (err) return console.log(err);
-            console.log(
-              `saved file to public/contributions.json (${calendar.totalContributions} contributions)`
-            );
-          }
-        );
+        const calendarJson = JSON.stringify(calendar);
+        fs.writeFile("./public/contributions.json", calendarJson, function (err) {
+          if (err) return console.log(err);
+          console.log(
+            `saved file to public/contributions.json (${calendar.totalContributions} contributions)`
+          );
+        });
+        fs.writeFile("./src/data/contributions.json", calendarJson, function (err) {
+          if (err) return console.log(err);
+          console.log("saved file to src/data/contributions.json");
+        });
       } else {
         console.log("No contribution calendar in GitHub response");
       }
@@ -191,6 +192,39 @@ if (MEDIUM_USERNAME !== undefined) {
         if (err) return console.log(err);
         console.log("saved file to public/blogs.json");
       });
+
+      try {
+        const parsed = JSON.parse(mediumData);
+        const items = (parsed.items || []).slice(0, 3).map(blog => {
+          const html = blog.content || blog.description || "";
+          const description = String(html)
+            .split(/<\/p>/i)
+            .map(part => part.split(/<p[^>]*>/i).pop())
+            .filter(el => el && el.trim().length > 0)
+            .map(el => el.replace(/<\/?[^>]+(>|$)/g, "").trim())
+            .join(" ");
+          const image =
+            blog.thumbnail ||
+            (blog.enclosure && blog.enclosure.link) ||
+            ((html.match(/<img[^>]+src=["']([^"']+)["']/i) || [])[1] || null);
+          return {
+            url: blog.link,
+            title: blog.title,
+            description,
+            image
+          };
+        });
+        fs.writeFile(
+          "./src/data/blogs.json",
+          JSON.stringify({items}, null, 2),
+          function (err) {
+            if (err) return console.log(err);
+            console.log("saved file to src/data/blogs.json");
+          }
+        );
+      } catch (parseErr) {
+        console.log("Failed to write src/data/blogs.json", parseErr);
+      }
     });
   });
 

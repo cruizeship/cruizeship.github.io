@@ -1,6 +1,7 @@
-import React, {useRef, useCallback, useState, useEffect} from "react";
+import React, {useRef, useCallback, useState} from "react";
 import "./MiscSection.scss";
 import {miscSection} from "../../portfolio";
+import contributionsCalendar from "../../data/contributions.json";
 
 const MONTH_LABELS = [
   "Jan",
@@ -17,6 +18,8 @@ const MONTH_LABELS = [
   "Dec"
 ];
 
+const GRAPH_WEEKS = 53;
+
 function contributionLevel(count) {
   if (!count) return 0;
   if (count <= 2) return 1;
@@ -25,12 +28,28 @@ function contributionLevel(count) {
   return 4;
 }
 
+/** Always 53 week columns so the panel size never changes. */
+function normalizeCalendar(calendar) {
+  const sourceWeeks = (calendar && calendar.weeks) || [];
+  const weeks = sourceWeeks.slice(0, GRAPH_WEEKS).map(week => ({
+    contributionDays: week.contributionDays || []
+  }));
+
+  while (weeks.length < GRAPH_WEEKS) {
+    weeks.push({contributionDays: []});
+  }
+
+  return {
+    totalContributions: (calendar && calendar.totalContributions) || 0,
+    weeks
+  };
+}
+
 function Polaroid({polaroid, zIndex, onBringToFront}) {
   const {caption, image} = polaroid;
 
   const handleActivate = event => {
     onBringToFront();
-    // Drop sticky focus ring after tap on mobile
     if (event.currentTarget && event.currentTarget.blur) {
       event.currentTarget.blur();
     }
@@ -52,23 +71,15 @@ function Polaroid({polaroid, zIndex, onBringToFront}) {
 }
 
 function ContributionGraph({calendar}) {
-  if (!calendar || !calendar.weeks || !calendar.weeks.length) {
-    return (
-      <div className="misc-contributions misc-panel">
-        <p className="misc-contributions-empty">
-          Contribution data unavailable. Run fetch.js with GitHub env vars set.
-        </p>
-      </div>
-    );
-  }
-
   const weeks = calendar.weeks;
   const monthLabels = [];
   let lastMonth = -1;
 
   weeks.forEach((week, weekIndex) => {
     const firstDay = week.contributionDays && week.contributionDays[0];
-    if (!firstDay) return;
+    if (!firstDay || !firstDay.date) {
+      return;
+    }
     const month = new Date(firstDay.date + "T00:00:00").getMonth();
     if (month !== lastMonth) {
       monthLabels.push({label: MONTH_LABELS[month], weekIndex});
@@ -77,7 +88,7 @@ function ContributionGraph({calendar}) {
   });
 
   return (
-    <div className="misc-contributions misc-panel">
+    <div className="misc-contributions misc-panel scroll-reveal">
       <div className="misc-contributions-header">
         <h3 className="misc-contributions-title">Contribution Graph</h3>
         <span className="misc-contributions-total">
@@ -89,7 +100,7 @@ function ContributionGraph({calendar}) {
       <div className="misc-contributions-scroll">
         <div
           className="misc-contributions-inner"
-          style={{"--weeks": weeks.length}}
+          style={{"--weeks": GRAPH_WEEKS}}
         >
           <div className="misc-contributions-months">
             {monthLabels.map(({label, weekIndex}) => (
@@ -107,9 +118,7 @@ function ContributionGraph({calendar}) {
             {weeks.map((week, weekIndex) =>
               (week.contributionDays || []).map(day => {
                 const level = contributionLevel(day.contributionCount);
-                const dayOfWeek = new Date(
-                  day.date + "T00:00:00"
-                ).getDay();
+                const dayOfWeek = new Date(day.date + "T00:00:00").getDay();
                 return (
                   <div
                     key={day.date}
@@ -144,12 +153,12 @@ function ContributionGraph({calendar}) {
   );
 }
 
+const calendar = normalizeCalendar(contributionsCalendar);
+
 export default function MiscSection() {
   const polaroids = miscSection.polaroids;
   const zIndexCounter = useRef(polaroids.length);
   const [polaroidZIndexes, setPolaroidZIndexes] = useState({});
-  const [calendar, setCalendar] = useState(null);
-  const [calendarLoaded, setCalendarLoaded] = useState(false);
 
   const bringToFront = useCallback(index => {
     zIndexCounter.current += 1;
@@ -159,24 +168,6 @@ export default function MiscSection() {
     }));
   }, []);
 
-  useEffect(() => {
-    fetch("/contributions.json")
-      .then(result => {
-        if (!result.ok) {
-          throw new Error(`HTTP ${result.status}`);
-        }
-        return result.json();
-      })
-      .then(data => {
-        setCalendar(data);
-        setCalendarLoaded(true);
-      })
-      .catch(() => {
-        setCalendar(null);
-        setCalendarLoaded(true);
-      });
-  }, []);
-
   if (!miscSection.display) {
     return null;
   }
@@ -184,13 +175,13 @@ export default function MiscSection() {
   return (
     <section className="lumina-misc lumina-section" id="about">
       <div className="lumina-container">
-        <header className="lumina-misc-header">
+        <header className="lumina-misc-header scroll-reveal">
           <h2 className="lumina-display">
-            More From <span className="lumina-accent">Me</span>
+            What I've Been <span className="lumina-accent">Up To</span>
           </h2>
         </header>
 
-        <div className="polaroid-canvas">
+        <div className="polaroid-canvas scroll-reveal">
           {polaroids.map((polaroid, i) => (
             <Polaroid
               key={i}
@@ -206,7 +197,7 @@ export default function MiscSection() {
         </div>
 
         <div className="misc-widgets">
-          <div className="misc-facts">
+          <div className="misc-facts scroll-reveal">
             {miscSection.funFacts.map(fact => (
               <div key={fact.label} className="misc-stat misc-panel">
                 <span className="misc-stat-value">{fact.value}</span>
@@ -215,7 +206,7 @@ export default function MiscSection() {
             ))}
           </div>
 
-          {calendarLoaded && <ContributionGraph calendar={calendar} />}
+          <ContributionGraph calendar={calendar} />
         </div>
       </div>
     </section>

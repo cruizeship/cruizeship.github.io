@@ -1,24 +1,12 @@
 const QUERY_FLAG = "flashDebug";
 const STORAGE_KEY = "flashDebug";
 
-function isDevEnvironment() {
-  if (typeof process !== "undefined" && process.env && process.env.NODE_ENV) {
-    return process.env.NODE_ENV === "development";
-  }
-
-  const host = window.location.hostname;
-  return host === "localhost" || host === "127.0.0.1";
-}
-
 function isEnabled() {
   if (typeof window === "undefined") {
     return false;
   }
 
-  if (isDevEnvironment()) {
-    return true;
-  }
-
+  // Opt-in only — not auto-enabled in development
   if (window.localStorage.getItem(STORAGE_KEY) === "1") {
     return true;
   }
@@ -262,7 +250,7 @@ export function initFlashDebug() {
   }
 
   flashDebugLog("boot", "enabled", {
-    hint: "Disable with localStorage.removeItem('flashDebug') or remove ?flashDebug"
+    hint: "Enable with localStorage.flashDebug=1 or ?flashDebug"
   });
 
   let resizeSession = 0;

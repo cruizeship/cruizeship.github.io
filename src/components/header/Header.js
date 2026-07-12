@@ -66,7 +66,7 @@ function Header() {
             className="lumina-btn-resume"
             onClick={handleNavClick}
           >
-            About
+            More
           </a>
         </nav>
       </div>,

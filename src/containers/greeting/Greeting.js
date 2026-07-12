@@ -23,14 +23,14 @@ export default function Greeting() {
     <section className="lumina-hero lumina-section" id="greeting">
       <div className="lumina-container">
         <div className="lumina-hero-grid">
-          <div className="lumina-hero-image-wrap">
+          <div className="lumina-hero-image-wrap scroll-reveal">
             <div className="lumina-hero-image-glow" />
             <div className="lumina-hero-image">
               <img src={headshot} alt="Andrew Cruz" />
             </div>
           </div>
 
-          <div className="lumina-hero-text">
+          <div className="lumina-hero-text scroll-reveal">
             <h1 className="lumina-display">{greeting.title}</h1>
             <p className="lumina-body-lg lumina-hero-bio">{greeting.subTitle}</p>
 
