@@ -26,7 +26,7 @@ export default function Top() {
   // When the user clicks on the button, scroll to the top of the document
   return (
     <button onClick={TopEvent} id="topButton" title="Go to top">
-      <i className="fas fa-arrow-up" aria-hidden="true"></i>
+      <span className="material-symbols-outlined">arrow_upward</span>
     </button>
   );
 }

@@ -25,7 +25,7 @@ if (USE_GITHUB_DATA === "true") {
   var data = JSON.stringify({
     query: `
 {
-  user(login:"${GITHUB_USERNAME}") { 
+  user(login: "${GITHUB_USERNAME}") {
     name
     bio
     avatarUrl
@@ -33,26 +33,41 @@ if (USE_GITHUB_DATA === "true") {
     pinnedItems(first: 6, types: [REPOSITORY]) {
       totalCount
       edges {
-          node {
-            ... on Repository {
+        node {
+          ... on Repository {
+            name
+            description
+            forkCount
+            stargazers {
+              totalCount
+            }
+            url
+            id
+            diskUsage
+            primaryLanguage {
               name
-              description
-              forkCount
-              stargazers {
-                totalCount
-              }
-              url
-              id
-              diskUsage
-              primaryLanguage {
-                name
-                color
-              }
+              color
             }
           }
         }
       }
     }
+  }
+  viewer {
+    login
+    contributionsCollection {
+      restrictedContributionsCount
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
+  }
 }
 `
   });
@@ -79,10 +94,67 @@ if (USE_GITHUB_DATA === "true") {
       data += d;
     });
     res.on("end", () => {
-      fs.writeFile("./public/profile.json", data, function (err) {
+      let parsed;
+      try {
+        parsed = JSON.parse(data);
+      } catch (parseErr) {
+        console.log("Failed to parse GitHub response", parseErr);
+        return;
+      }
+
+      if (parsed.errors) {
+        console.log("GitHub GraphQL errors:", JSON.stringify(parsed.errors, null, 2));
+      }
+
+      // Profile consumers expect { data: { user: ... } }
+      const profilePayload = JSON.stringify({
+        data: {user: parsed.data && parsed.data.user}
+      });
+      fs.writeFile("./public/profile.json", profilePayload, function (err) {
         if (err) return console.log(err);
         console.log("saved file to public/profile.json");
       });
+
+      const viewer = parsed.data && parsed.data.viewer;
+      if (viewer && viewer.login && viewer.login !== GITHUB_USERNAME) {
+        console.log(
+          `Warning: token belongs to "${viewer.login}", but GITHUB_USERNAME is "${GITHUB_USERNAME}". Contribution graph will reflect the token owner.`
+        );
+      }
+
+      const collection = viewer && viewer.contributionsCollection;
+      const calendar = collection && collection.contributionCalendar;
+      const restricted = collection && collection.restrictedContributionsCount;
+
+      if (restricted > 0) {
+        console.log(
+          `Note: ${restricted} private contributions are hidden from the calendar (restrictedContributionsCount).`
+        );
+        console.log(
+          "Use a classic PAT with the `repo` scope (fine-grained tokens often cannot unlock private contribution days),"
+        );
+        console.log(
+          "and ensure GitHub → Settings → Profile → “Include private contributions on my profile” is enabled."
+        );
+        console.log(
+          "Warning: enabling that setting (and deploying this JSON) makes private contribution *days* publicly visible on your site."
+        );
+      }
+
+      if (calendar) {
+        fs.writeFile(
+          "./public/contributions.json",
+          JSON.stringify(calendar),
+          function (err) {
+            if (err) return console.log(err);
+            console.log(
+              `saved file to public/contributions.json (${calendar.totalContributions} contributions)`
+            );
+          }
+        );
+      } else {
+        console.log("No contribution calendar in GitHub response");
+      }
     });
   });
 

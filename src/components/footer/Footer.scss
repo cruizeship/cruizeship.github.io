@@ -1,15 +1,61 @@
 @import "../../_globalColor";
 
-.footer-text {
-  text-align: center;
-  color: $subTitle !important;
+.lumina-footer {
+  width: 100%;
+  padding: 24px 0;
+  border-top: 1px solid $lumina-outline-variant;
+  background: transparent;
 }
 
-.dark-mode {
-  color: $textColorDark !important;
+.lumina-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+  }
 }
 
-.footer-div {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+.lumina-footer-name {
+  font-family: "Sora", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: $lumina-on-surface;
+}
+
+.lumina-footer-copy {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: $lumina-on-surface-variant;
+  margin: 0;
+  order: 3;
+
+  @media (min-width: 768px) {
+    order: 0;
+  }
+}
+
+.lumina-footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lumina-footer-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $lumina-on-surface-variant;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $lumina-tech-accent;
+  }
 }

@@ -1,0 +1,320 @@
+@import "../../_globalColor";
+
+.lumina-misc {
+  margin-bottom: 64px;
+  overflow: visible;
+  overflow-anchor: auto;
+}
+
+.lumina-misc-header {
+  overflow-anchor: auto;
+  text-align: center;
+  padding: 24px 0 32px;
+}
+
+.polaroid-canvas {
+  // Default: 2×6 with overlap — flex on all tiers so packed width centers correctly
+  --cols: 2;
+  --polaroid-w: 220px;
+  --ox: 40px;
+  --oy: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(var(--cols) * var(--polaroid-w) - (var(--cols) - 1) * var(--ox));
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 0;
+  overflow: visible;
+  overflow-anchor: none;
+
+  // 2×6 squished — strongest overlap
+  @media (max-width: 479px) {
+    --ox: 80px;
+    --oy: 48px;
+  }
+
+  // 3×4
+  @media (min-width: 700px) {
+    --cols: 3;
+    --ox: 36px;
+    --oy: 28px;
+  }
+
+  // 4×3
+  @media (min-width: 960px) {
+    --cols: 4;
+    --ox: 32px;
+    --oy: 24px;
+  }
+
+  // 6×2 — slightly narrower so 6 fit in the 1280 container
+  @media (min-width: 1280px) {
+    --cols: 6;
+    --polaroid-w: 188px;
+    --ox: 28px;
+    --oy: 20px;
+  }
+}
+
+.misc-panel {
+  background: $lumina-glass-bg;
+  border: 1px solid $lumina-glass-border;
+}
+
+// Pre-rotated PNGs include frame + caption — no CSS tilt/chrome.
+.polaroid {
+  position: relative;
+  width: var(--polaroid-w);
+  max-width: min(var(--polaroid-w), 100%);
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: scale(1);
+  transition: transform 0.25s ease;
+  transform-origin: center center;
+
+  &:hover,
+  &:active {
+    transform: scale(1.08);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  // 2×6 (and squished flex)
+  @media (max-width: 699px) {
+    &:nth-child(2n) {
+      margin-left: calc(-1 * var(--ox));
+    }
+
+    &:nth-child(n + 3) {
+      margin-top: calc(-1 * var(--oy));
+    }
+  }
+
+  // 3×4
+  @media (min-width: 700px) and (max-width: 959px) {
+    &:nth-child(3n + 2),
+    &:nth-child(3n + 3) {
+      margin-left: calc(-1 * var(--ox));
+    }
+
+    &:nth-child(n + 4) {
+      margin-top: calc(-1 * var(--oy));
+    }
+  }
+
+  // 4×3
+  @media (min-width: 960px) and (max-width: 1279px) {
+    &:nth-child(4n + 2),
+    &:nth-child(4n + 3),
+    &:nth-child(4n + 4) {
+      margin-left: calc(-1 * var(--ox));
+    }
+
+    &:nth-child(n + 5) {
+      margin-top: calc(-1 * var(--oy));
+    }
+  }
+
+  // 6×2
+  @media (min-width: 1280px) {
+    &:nth-child(6n + 2),
+    &:nth-child(6n + 3),
+    &:nth-child(6n + 4),
+    &:nth-child(6n + 5),
+    &:nth-child(6n + 6) {
+      margin-left: calc(-1 * var(--ox));
+    }
+
+    &:nth-child(n + 7) {
+      margin-top: calc(-1 * var(--oy));
+    }
+  }
+}
+
+.misc-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.misc-facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.misc-stat {
+  padding: 32px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.misc-stat-value {
+  font-family: "Sora", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: $lumina-tech-accent;
+  margin-bottom: 8px;
+}
+
+.misc-stat-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: $lumina-on-surface-variant;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+// Contribution graph — #171c28 empty + indigo fill levels
+$contrib-empty: #171c28;
+$contrib-l1: #2a3350;
+$contrib-l2: #3d4a7a;
+$contrib-l3: #5b6bb8;
+$contrib-l4: #818cf8;
+
+.misc-contributions {
+  padding: 28px 24px 24px;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.misc-contributions-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+
+.misc-contributions-title {
+  font-family: "Sora", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: $lumina-on-surface;
+  margin: 0;
+}
+
+.misc-contributions-total {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: $lumina-on-surface-variant;
+}
+
+.misc-contributions-empty {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: $lumina-on-surface-variant;
+  margin: 0;
+  text-align: center;
+}
+
+.misc-contributions-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+
+.misc-contributions-inner {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.misc-contributions-months {
+  display: grid;
+  grid-template-columns: repeat(var(--weeks, 53), 12px);
+  column-gap: 3px;
+  margin-bottom: 6px;
+  height: 16px;
+}
+
+.misc-contributions-month {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: $lumina-on-surface-variant;
+  white-space: nowrap;
+}
+
+.misc-contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--weeks, 53), 12px);
+  grid-template-rows: repeat(7, 12px);
+  gap: 3px;
+}
+
+.misc-contrib-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: $contrib-empty;
+
+  &.level-0 {
+    background: $contrib-empty;
+  }
+
+  &.level-1 {
+    background: $contrib-l1;
+  }
+
+  &.level-2 {
+    background: $contrib-l2;
+  }
+
+  &.level-3 {
+    background: $contrib-l3;
+  }
+
+  &.level-4 {
+    background: $contrib-l4;
+  }
+}
+
+.misc-contributions-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 16px;
+
+  span {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: $lumina-on-surface-variant;
+    margin: 0 4px;
+  }
+}

@@ -1,0 +1,274 @@
+@import "../_globalColor";
+
+// Layout
+$container-max: 1280px;
+$section-gap: 100px;
+$section-gap-mobile: 40px;
+$gutter: 24px;
+$gutter-mobile: 16px;
+
+.lumina-page {
+  background-color: $lumina-black;
+  color: $lumina-on-surface;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+}
+
+.lumina-blobs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      900px 900px at 2% -10%,
+      $lumina-blob-blue,
+      rgba(59, 130, 246, 0.12) 42%,
+      transparent 68%
+    ),
+    radial-gradient(
+      820px 820px at 100% 28%,
+      $lumina-blob-purple,
+      rgba(168, 85, 247, 0.1) 40%,
+      transparent 66%
+    );
+}
+
+.lumina-content {
+  position: relative;
+  z-index: 1;
+}
+
+.lumina-container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $gutter;
+
+  @media (max-width: 768px) {
+    padding: 0 $gutter-mobile;
+  }
+}
+
+.lumina-section {
+  margin-bottom: $section-gap;
+
+  @media (max-width: 768px) {
+    margin-bottom: $section-gap-mobile;
+  }
+}
+
+// Typography
+.lumina-display {
+  font-family: "Sora", sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: $lumina-on-surface;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+}
+
+.lumina-headline {
+  font-family: "Sora", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: $lumina-on-surface;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.lumina-headline-sm {
+  font-family: "Sora", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $lumina-on-surface;
+}
+
+.lumina-body-lg {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $lumina-on-surface-variant;
+}
+
+.lumina-body-md {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $lumina-on-surface-variant;
+}
+
+.lumina-label-mono {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.lumina-label-caps {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lumina-accent {
+  color: $lumina-tech-accent;
+}
+
+// Glass components
+.glass-panel {
+  background: $lumina-glass-bg;
+  border: 1px solid $lumina-glass-border;
+  border-radius: 16px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    border-color: $lumina-glass-border-hover;
+    background: $lumina-glass-bg-hover;
+  }
+}
+
+.tech-badge {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: $lumina-tech-accent;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+// Buttons
+.lumina-btn-primary {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #ffffff;
+  color: $lumina-background;
+  padding: 16px 40px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: $lumina-tech-accent;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+}
+
+.lumina-btn-ghost {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: transparent;
+  color: $lumina-on-surface;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $lumina-tech-accent;
+  }
+}
+
+.lumina-btn-resume {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: $lumina-tech-accent;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 20px rgba(129, 140, 248, 0.2);
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Scroll reveal — avoid combining with .glass-panel (backdrop-filter + opacity causes flashes)
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $lumina-background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $lumina-outline-variant;
+  border-radius: 10px;
+}
+
+::selection {
+  background: $lumina-tech-accent;
+  color: #ffffff;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+}

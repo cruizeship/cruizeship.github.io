@@ -1,86 +1,71 @@
-import React, {useContext} from "react";
-import {Fade} from "react-reveal";
-import emoji from "react-easy-emoji";
+import React from "react";
 import "./Greeting.scss";
-import landingPerson from "../../assets/lottie/landingPerson";
-import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Button from "../../components/button/Button";
-import {illustration, greeting} from "../../portfolio";
-import StyleContext from "../../contexts/StyleContext";
-import {socialMediaLinks} from "../../portfolio";
+import {greeting, socialMediaLinks} from "../../portfolio";
+import placeholderHeadshot from "../../assets/images/placeholder-headshot.svg";
+import headshot from "../../assets/images/headshot.png";
+
+const SOCIAL_ICONS = [
+  {key: "github", iconClass: "fab fa-github", url: socialMediaLinks.github},
+  {key: "linkedin", iconClass: "fab fa-linkedin-in", url: socialMediaLinks.linkedin},
+  {
+    key: "gmail",
+    iconClass: "fas fa-envelope",
+    url: socialMediaLinks.gmail ? `mailto:${socialMediaLinks.gmail}` : null
+  },
+  {key: "medium", iconClass: "fab fa-medium", url: socialMediaLinks.medium}
+].filter(s => s.url);
 
 export default function Greeting() {
-  const {isDark} = useContext(StyleContext);
   if (!greeting.displayGreeting) {
     return null;
   }
+
   return (
-    <Fade bottom duration={1000} distance="40px">
-      <div className="greet-main" id="greeting">
-        <div className="greeting-main">
-          <div className="greeting-text-div">
-            <div>
-              <h1
-                className={isDark ? "dark-mode greeting-text" : "greeting-text"}
-              >
-                {" "}
-                {greeting.title}{" "}
-                {/*<span className="wave-emoji">{emoji("👋")}</span>*/}
-              </h1>
-              <p
-                className={
-                  isDark
-                    ? "dark-mode greeting-text-p"
-                    : "greeting-text-p subTitle"
-                }
-              >
-                {greeting.subTitle}
-              </p>
-              <div className="empty-div"></div>
-              <div className="social-media-override"><SocialMedia /></div>
-              {/*<div className="down-arrow-div">
-                <a href="#resume">
-                  <i className={
-                  isDark
-                    ? "dark-temp fas fa-chevron-down"
-                    : "fas fa-chevron-down down-arrow"
-                  }></i>
-                </a>
-              </div>*/}
-              {/*<div className="button-greeting-center-div">
-                <div className="button-greeting-div">
-                  <Button text="Contact me" href={`mailto:${socialMediaLinks.gmail}`} />
-                  {greeting.resumeLink && (
-                    <a
-                      href={require("./resume.pdf")}
-                      download="Resume.pdf"
-                      className="download-link-button"
-                    >
-                      <Button text="Download my resume" />
-                    </a>
-                  )}
-                </div>
-              </div>*/}
+    <section className="lumina-hero lumina-section" id="greeting">
+      <div className="lumina-container">
+        <div className="lumina-hero-grid">
+          <div className="lumina-hero-image-wrap">
+            <div className="lumina-hero-image-glow" />
+            <div className="lumina-hero-image">
+              <img src={headshot} alt="Andrew Cruz" />
             </div>
           </div>
-          <div className="greeting-image-div">
-            <img
-              src={"/Devlogo.svg"}
-            ></img>
-          </div>
-          {/*<div className="greeting-image-div">
-            {illustration.animated ? (
-              <DisplayLottie animationData={landingPerson} />
-            ) : (
-              <img
-                alt="man sitting on table"
-                src={require("../../assets/images/manOnTable.svg")}
-              ></img>
+
+          <div className="lumina-hero-text">
+            <h1 className="lumina-display">{greeting.title}</h1>
+            <p className="lumina-body-lg lumina-hero-bio">{greeting.subTitle}</p>
+
+            <div className="lumina-hero-ctas">
+              <a href="#projects" className="lumina-btn-primary">
+                PROJECTS
+              </a>
+              <a href="#experience" className="lumina-btn-ghost">
+                EXPERIENCE
+                <span className="material-symbols-outlined lumina-arrow-icon">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
+
+            {socialMediaLinks.display && (
+              <div className="lumina-hero-social">
+                {SOCIAL_ICONS.map(social => (
+                  <a
+                    key={social.key}
+                    href={social.url}
+                    className="lumina-social-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.key}
+                  >
+                    <i className={social.iconClass} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
             )}
-          </div>*/}
+          </div>
         </div>
       </div>
-    </Fade>
+    </section>
   );
 }

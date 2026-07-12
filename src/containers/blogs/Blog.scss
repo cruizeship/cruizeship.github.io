@@ -1,70 +1,188 @@
-/*Blog Cards Layout*/
 @import "../../_globalColor";
 
-.square {
-  width: 440px;
-  height: 430px;
-  background: $textColorDark;
-  border-radius: 4px;
-  box-shadow: 0px 20px 50px $darkBoxShadow;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  margin-top: 30px;
+.lumina-blogs {
+  width: 100%;
+  min-width: 0;
+  margin-top: 64px;
+  overflow-anchor: auto;
+
+  @media (max-width: 768px) {
+    margin-top: 40px;
+  }
 }
 
-.square:hover {
-  box-shadow: 0 20px 40px $lightBoxShadow;
-}
-
-.blog-header-text {
-  font-size: 56px;
-  font-weight: 400;
-}
-
-.blog-subtitle {
-  //text-transform: uppercase;
-}
-.blog-main-div > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-.blog-main-div {
+.lumina-blogs-header {
+  overflow-anchor: auto;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 }
-.blog-image-div > img {
+
+.lumina-blogs-subtitle {
+  margin-bottom: 48px;
   max-width: 100%;
-  height: auto;
+  word-wrap: break-word;
 }
-.blog-text-div {
+
+.lumina-blogs-grid {
+  --blog-card-width: 384px;
+  --blog-gap: 32px;
+  container-type: inline-size;
+  container-name: blogs-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 32px;
-}
-.subTitle {
-  color: $subTitle;
-}
+  grid-template-columns: repeat(auto-fit, var(--blog-card-width));
+  gap: var(--blog-gap);
+  justify-content: center;
+  justify-items: stretch;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+  grid-auto-rows: minmax(425px, auto);
+  overflow-anchor: none;
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .blog-header-text {
-    font-size: 40px;
-  }
-}
-@media (max-width: 768px) {
-  .blog-header-text {
-    font-size: 30px;
-    text-align: center;
-  }
-  .blog-subtitle {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
+  @media (max-width: 768px) {
+    --blog-gap: 24px;
   }
 }
 
-@media screen and (max-width: 480px) and (min-width: 300px) {
-  .blog-text-div {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.lumina-blog-card {
+  width: 100%;
+  max-width: var(--blog-card-width);
+  justify-self: stretch;
+  padding: 32px;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  box-sizing: border-box;
+  background: $lumina-glass-bg;
+  border: 1px solid $lumina-glass-border;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+}
+
+// Single column
+@container blogs-grid (max-width: 799px) {
+  .lumina-blogs-grid {
+    grid-template-columns: minmax(0, min(var(--blog-card-width), 100%));
+  }
+
+  .lumina-blog-card {
+    width: 100%;
+    max-width: min(var(--blog-card-width), 100%);
+  }
+}
+
+// 2-column range: center odd orphan card (vertical layout, no horizontal reflow)
+@container blogs-grid (min-width: 800px) and (max-width: 1215px) {
+  .lumina-blog-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(var(--blog-card-width), 100%);
+    max-width: var(--blog-card-width);
+    justify-self: center;
+  }
+}
+
+.lumina-blog-content {
+  min-width: 0;
+  width: 100%;
+}
+
+.lumina-blog-thumbnail {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  background: $lumina-glass-bg-subtle;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 0 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.lumina-blog-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(129, 140, 248, 0.1);
+
+  .material-symbols-outlined {
+    font-size: 48px;
+    color: $lumina-tech-accent;
+    opacity: 0.4;
+  }
+}
+
+.lumina-blog-title {
+  font-family: "Sora", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: $lumina-on-surface;
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  line-height: 1.35;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.lumina-blog-desc {
+  font-size: 14px;
+  color: $lumina-on-surface-variant;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+}
+
+.lumina-blog-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: $lumina-tech-accent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+  transition: color 0.2s ease;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+
+  &:hover {
+    color: $lumina-on-surface;
   }
 }

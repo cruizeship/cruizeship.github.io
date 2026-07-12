@@ -1,0 +1,255 @@
+@import "../../_globalColor";
+
+.exp-edu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.exp-edu-heading {
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+// Timeline
+$timeline-dot-size: 20px;
+$timeline-line-x: 16px;
+$timeline-content-offset: 40px;
+
+.timeline {
+  position: relative;
+  padding-left: $timeline-content-offset;
+  border-left: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: $timeline-line-x;
+    width: 2px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 8px;
+  left: calc(
+    #{$timeline-line-x} - #{$timeline-content-offset} - #{$timeline-dot-size} / 2
+  );
+  width: $timeline-dot-size;
+  height: $timeline-dot-size;
+  border-radius: 50%;
+  background: $lumina-background;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-item-active .timeline-dot {
+  border-color: $lumina-tech-accent;
+  box-shadow: 0 0 15px rgba(129, 140, 248, 0.5);
+}
+
+.timeline-item:hover .timeline-dot {
+  border-color: $lumina-tech-accent;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.timeline-company {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.timeline-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.timeline-company-name {
+  font-family: "Sora", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: $lumina-on-surface;
+  margin: 0;
+}
+
+.timeline-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: $lumina-on-surface-variant;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.timeline-role {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: $lumina-tech-accent;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.timeline-team {
+  font-size: 16px;
+  color: $lumina-on-surface-variant;
+  margin: 0 0 12px;
+}
+
+.timeline-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    color: $lumina-on-surface-variant;
+    margin-bottom: 8px;
+
+    &::before {
+      content: "•";
+      color: $lumina-tech-accent;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Education
+.edu-card {
+  padding: 32px;
+  border-radius: 32px;
+}
+
+.edu-entry {
+  &:not(:first-child) {
+    margin-top: 32px;
+  }
+}
+
+.edu-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 32px 0;
+}
+
+.edu-school {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edu-school-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.edu-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.edu-school-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .timeline-team {
+    margin-bottom: 0;
+  }
+}
+
+.edu-activity-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.edu-year-badge,
+.edu-activity-chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.edu-year-badge--primary {
+  background: rgba(77, 142, 255, 0.2);
+  color: $lumina-primary;
+  border: 1px solid rgba(173, 198, 255, 0.3);
+}
+
+.edu-year-badge--muted,
+.edu-activity-chip--muted {
+  background: rgba(145, 145, 145, 0.1);
+  color: #c6c6c6;
+  border: 1px solid rgba(198, 198, 198, 0.2);
+
+  .edu-card:hover & {
+    background: rgba(145, 145, 145, 0.2);
+  }
+}
+
+.edu-activity-chip--primary {
+  background: rgba(111, 0, 190, 0.1);
+  color: $lumina-secondary;
+  border: 1px solid rgba(221, 183, 255, 0.2);
+
+  .edu-card:hover & {
+    background: rgba(111, 0, 190, 0.2);
+  }
+}

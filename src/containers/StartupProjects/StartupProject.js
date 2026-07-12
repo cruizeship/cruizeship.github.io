@@ -1,94 +1,87 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./StartupProjects.scss";
 import {bigProjects} from "../../portfolio";
-import {Fade} from "react-reveal";
-import StyleContext from "../../contexts/StyleContext";
+import app1 from "../../assets/images/app.png";
+import app2 from "../../assets/images/app2.png";
+import app3 from "../../assets/images/app3.png";
 
 export default function StartupProject() {
   function openUrlInNewTab(url) {
-    if (!url) {
-      return;
-    }
-    var win = window.open(url, "_blank");
-    win.focus();
+    if (!url) return;
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  const {isDark} = useContext(StyleContext);
-  if (!bigProjects.display) {
+  if (!bigProjects.display || bigProjects.projects.length === 0) {
     return null;
   }
-  return (
-    <Fade bottom duration={1000} distance="20px">
-      <div className="main" id="projects" href="#projects">
-        <div>
-          <h1 className="skills-heading">{bigProjects.title}</h1>
-          <p
-            className={
-              isDark
-                ? "dark-mode project-subtitle"
-                : "subTitle project-subtitle"
-            }
-          >
-            {bigProjects.subtitle}
-          </p>
 
-          <div className="projects-container">
-            {bigProjects.projects.map((project, i) => {
-              return (
-                <div
-                  key={i}
-                  className={
-                    isDark
-                      ? "dark-mode project-card project-card-dark"
-                      : "project-card project-card-light"
-                  }
-                >
-                  {project.image ? (
-                    <div className="project-image">
-                      <img
-                        src={project.image}
-                        alt={project.projectName}
-                        className="card-image"
-                      ></img>
-                    </div>
-                  ) : null}
-                  <div className="project-detail">
-                    <h5
-                      className={isDark ? "dark-temp2 card-title" : "card-title"}
-                    >
-                      {project.projectName}
-                    </h5>
-                    <p
-                      className={
-                        isDark ? "dark-temp2 card-subtitle" : "card-subtitle"
-                      }
-                    >
-                      {project.projectDesc}
-                    </p>
-                    {project.footerLink ? (
-                      <div className="project-card-footer">
-                        {project.footerLink.map((link, i) => {
-                          return (
-                            <span
-                              key={i}
-                              className={
-                                isDark ? "dark-mode project-tag" : "project-tag"
-                              }
-                              onClick={() => openUrlInNewTab(link.url)}
-                            >
-                              {link.name}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
-              );
-            })}
+  const project = bigProjects.projects[0];
+  const projectUrl = project.footerLink && project.footerLink[0]?.url;
+
+  return (
+    <section className="lumina-featured-project lumina-section" id="projects">
+      <div className="lumina-container">
+        <div className="featured-grid scroll-reveal">
+          <div className="featured-mockups">
+            <div className="phone-frame phone-frame-back">
+              <img src={app3} alt="Retune app screenshot" />
+            </div>
+            <div className="phone-frame phone-frame-middle">
+              <img src={app2} alt="Retune app screenshot" />
+            </div>
+            <div className="phone-frame phone-frame-front">
+              <img src={app1} alt="Retune app screenshot" />
+            </div>
+          </div>
+
+          <div className="featured-card glass-panel">
+            <div className="featured-card-header">
+              <h3 className="featured-project-name">{project.projectName}</h3>
+              <p className="featured-project-tagline lumina-label-mono lumina-accent">
+                Your Music, Mapped
+              </p>
+            </div>
+
+            <p className="lumina-body-md">{project.projectDesc}</p>
+
+            <div className="featured-features">
+              <h4 className="featured-features-label">Key Features</h4>
+              <ul className="featured-features-list">
+                <li>
+                  <span className="material-symbols-outlined">check_circle</span>
+                  Location-based Spotify tracking
+                </li>
+                <li>
+                  <span className="material-symbols-outlined">check_circle</span>
+                  Find trending music near you
+                </li>
+                <li>
+                  <span className="material-symbols-outlined">check_circle</span>
+                  Built with UCLA DevX
+                </li>
+              </ul>
+            </div>
+
+            <div className="featured-tags">
+              <span className="tech-badge">React Native</span>
+              <span className="tech-badge">Swift</span>
+              <span className="tech-badge">Express</span>
+            </div>
+
+            {projectUrl && (
+              <button
+                className="lumina-btn-primary featured-cta"
+                onClick={() => openUrlInNewTab(projectUrl)}
+              >
+                VISIT WEBSITE
+                <span className="material-symbols-outlined lumina-arrow-icon">
+                  arrow_forward
+                </span>
+              </button>
+            )}
           </div>
         </div>
       </div>
-    </Fade>
+    </section>
   );
 }

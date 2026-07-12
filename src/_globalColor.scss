@@ -1,92 +1,75 @@
-/* Change colors in this file to style to your needs on a global level. 
-Certain colors are used for different and multiply types of elements. 
-For greater control over colors visit each components .scss file. */
+// Lumina Tech Persona design tokens
+$lumina-black: #000000;
+$lumina-background: #101415;
+$lumina-surface: #101415;
+$lumina-surface-container: #1d2022;
+$lumina-surface-container-low: #191c1e;
+$lumina-surface-container-highest: #323537;
+$lumina-on-surface: #e0e3e5;
+$lumina-on-surface-variant: #c2c6d6;
+$lumina-outline: #8c909f;
+$lumina-outline-variant: #424754;
+$lumina-primary: #adc6ff;
+$lumina-secondary: #ddb7ff;
+$lumina-tech-accent: #818cf8;
+$lumina-blob-blue: rgba(59, 130, 246, 0.55);
+$lumina-blob-purple: rgba(168, 85, 247, 0.5);
+$lumina-glass-bg: rgba(255, 255, 255, 0.05);
+$lumina-glass-bg-hover: rgba(255, 255, 255, 0.09);
+$lumina-glass-bg-subtle: rgba(255, 255, 255, 0.03);
+$lumina-glass-border: rgba(255, 255, 255, 0.08);
+$lumina-glass-border-hover: rgba(173, 198, 255, 0.4);
 
-// button colors
-//$buttonColor: #55198b;
-//$buttonHover: #8c43ce;
-$buttonColor: #0064c8;
-$buttonHover: #47a8e0;
-$topButtonHover: #000;
-
-// text colors light theme
-$titleColor: #000000;
-$textColor: #000000;
-$subTitle: #868e96;
-$cardSubtitle: #666666;
-$talkCardSubTitle: #7f8287;
-$blogCardTitleColor: #262626;
-
-// text color dark theme
-$textColorDark: #ffffff;
-
-// toggle switch colors
-$toggleCheck: #2196f3;
-$toggleSwitchSliderBG: #ccc;
-
-// githubRepo specific colors
-$githubRepoCardLanguageColorBG: #0000ff;
-$githubRepoCardColor: rgb(88, 96, 105);
-$githubRepoCardRepoCardStatsColor: rgb(106, 115, 125);
-$githubRepoCardRepoNameColor: rgb(36, 41, 46);
-$githubProfileCardLocationTS: #ffebcd;
-$githubProfileCardBorder: #6c63ff;
-
-// light background colors
-$lightBackground1: #fff;
-$lightBackground2: rgb(255, 255, 255);
-$lightBackground3: #f5f2f4;
-$blogCardContainerColor: #586069;
-// dark background colors
-$darkBackground: #171c28;
-
-// light theme box shadows
-$lightBoxShadowDark: rgba(0, 0, 0, 0.2);
-$lightBoxShadow: rgba(0, 0, 0, 0.1);
-$lightBoxShadowDarker: rgba(0, 0, 0, 0.3);
-
-// dark theme box shadows
-$darkBoxShadow: #d9dbdf;
-$darkBoxShadow2: #ffffff;
-
-// linear gradients
-$experienceCardBlurredDivLG: linear-gradient(
-  rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0.2)
-);
-$experienceCardBannerLG: linear-gradient(
-  rgba(0, 0, 0, 0.7),
-  rgba(0, 0, 0, 0.5)
-);
-
-// borders
-$progressBarBackground: rgb(243, 239, 239);
-$lightBorder1: rgba(211, 211, 211, 0.397);
-$educationCardBorder: #a9a7f9;
-
-// hovers
-$achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.2);
+// Legacy aliases (used by remaining template files)
+$buttonColor: $lumina-tech-accent;
+$buttonHover: $lumina-primary;
+$topButtonHover: $lumina-primary;
+$titleColor: $lumina-on-surface;
+$textColor: $lumina-on-surface;
+$subTitle: $lumina-on-surface-variant;
+$cardSubtitle: $lumina-on-surface-variant;
+$talkCardSubTitle: $lumina-on-surface-variant;
+$blogCardTitleColor: $lumina-on-surface;
+$textColorDark: $lumina-on-surface;
+$toggleCheck: $lumina-primary;
+$toggleSwitchSliderBG: $lumina-outline-variant;
+$githubRepoCardLanguageColorBG: $lumina-primary;
+$githubRepoCardColor: $lumina-on-surface-variant;
+$githubRepoCardRepoCardStatsColor: $lumina-outline;
+$githubRepoCardRepoNameColor: $lumina-on-surface;
+$githubProfileCardLocationTS: $lumina-on-surface-variant;
+$githubProfileCardBorder: $lumina-primary;
+$lightBackground1: $lumina-background;
+$lightBackground2: $lumina-surface-container;
+$lightBackground3: $lumina-surface-container-low;
+$blogCardContainerColor: $lumina-on-surface-variant;
+$darkBackground: $lumina-background;
+$lightBoxShadowDark: rgba(0, 0, 0, 0.4);
+$lightBoxShadow: rgba(0, 0, 0, 0.2);
+$lightBoxShadowDarker: rgba(0, 0, 0, 0.5);
+$darkBoxShadow: rgba(255, 255, 255, 0.1);
+$darkBoxShadow2: rgba(255, 255, 255, 0.15);
+$experienceCardBlurredDivLG: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+$experienceCardBannerLG: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+$progressBarBackground: $lumina-surface-container;
+$lightBorder1: $lumina-glass-border;
+$educationCardBorder: $lumina-glass-border;
+$achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.08);
 $blogCardHoverSmallColor: rgba(255, 255, 255, 0.8);
-$headerHoverBG: #f4f4f4;
-$contactDetailHoverTS: #b5b5b5;
-
-// misc backgrounds
-$progressBarSpanBG: #aaa5ff;
-$iconBackground: #333;
-$appHeaderBG: #282c34;
-
-// misc colors
-$skillsColor: #645beb;
-$appLink: #09d3ac;
-
-// social media icons
+$headerHoverBG: rgba(255, 255, 255, 0.05);
+$contactDetailHoverTS: $lumina-primary;
+$progressBarSpanBG: $lumina-primary;
+$iconBackground: $lumina-surface-container;
+$appHeaderBG: $lumina-background;
+$skillsColor: $lumina-secondary;
+$appLink: $lumina-primary;
 $faceBook: #3b5998;
 $linkedin: #0e76a8;
-$github: #333;
+$github: $lumina-on-surface-variant;
 $gitlab: #fca326;
 $google: #ea4335;
 $twitter: #1da1f2;
-$medium: #000;
+$medium: $lumina-on-surface-variant;
 $stackoverflow: #f48024;
 $instagram: #c13584;
 $kaggle: #20beff;

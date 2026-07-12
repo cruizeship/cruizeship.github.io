@@ -128,10 +128,9 @@ const educationInfo = {
     {
       schoolName: "UCLA",
       logo: require("./assets/images/UCLAlogo.png"),
-      subHeader: "Bachelor of Science in Computer Science",
-      duration: "Fall 2023 - Present",
-      desc: "Coursework: Intro CS series, Data Structures and Algorithms, Software Construction, Graduate-level machine learning series",
-      desc2: "Activities: UCLA DevX (President), DataRes Consulting, Association of Chinese Americans, Tennis Club",
+      subHeader: "BS in Computer Science",
+      duration: "Class of 2027",
+      desc: "Activities: UCLA DevX, DataRes Consulting, Association of Chinese Americans",
       /*descBullets: [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -141,9 +140,8 @@ const educationInfo = {
       schoolName: "Carlmont High School",
       logo: require("./assets/images/Carlmontlogo.jpg"),
       subHeader: "High School Diploma",
-      duration: "Fall 2019 - Spring 2023",
-      desc: "Activities: Computer Science Club, Product Design Club, American Computer Science League Team, Varsity Tennis",
-      desc2: "Goat high school"
+      duration: "Class of 2023",
+      desc: "Activities: Computer Science Club, Product Design Club, Varsity Tennis",
     }
   ]
 };
@@ -178,36 +176,30 @@ const workExperiences = {
       role: "Software Engineer Intern",
       company: "Roblox",
       companylogo: require("./assets/images/Robloxlogo.jpg"),
-      date: "June 2026 - Present",
-      desc: "Working on the Creator Data Services team",
+      date: "Jun 2025 - Present",
+      desc: "Creator Data Services",
       descBullets: [
-        "Full-stack for AppleTV+, Fitness+, Sports, etc.",
-        "Java Spring Boot + Guice REST development",
-        "React + Typescript workflow auditing tools"
+        "High-throughput data types for Roblox Luau"
       ]
     },
     {
       role: "Software Engineer Intern",
       company: "Apple",
       companylogo: require("./assets/images/Applelogo.png"),
-      date: "June 2025 - September 2025",
-      desc: "Worked on the Digital Supply Chain team (Apple Services Engineering)",
+      date: "Jun 2025 - Sep 2025",
+      desc: "Digital Supply Chain",
       descBullets: [
-        "Full-stack for AppleTV+, Fitness+, Sports, etc.",
-        "Java Spring Boot + Guice REST development",
-        "React + Typescript workflow auditing tools"
+        "Full-stack for AppleTV+, Fitness+, Sports, etc."
       ]
     },
     {
       role: "Software Engineer Intern",
       company: "Lockheed Martin",
       companylogo: require("./assets/images/Lockheedlogo.png"),
-      date: "June 2022 – June 2025",
-      desc: "Worked on the Interoperability Framework team (Enterprise Operations)",
+      date: "Jun 2022 – Jun 2025",
+      desc: "Enterprise Interoperability Framework",
       descBullets: [
-        "Microservices for internal enterprise tooling",
-        "Java Spring Boot API + GraphQL development",
-        "DevOps + Infra with AWS/Openshift/Kubernetes"
+        "Microservices for internal enterprise tooling"
       ]
     },
     /*{
@@ -231,34 +223,23 @@ const openSource = {
 // Some big projects you have worked on
 
 const bigProjects = {
-  title: "Software Projects",
+  title: "Featured",
   subtitle: "Some things I have been building on the side",
   projects: [
     {
       image: require("./assets/images/Retunelogo.png"),
       projectName: "Retune",
-      projectDesc: "First location-based Spotify tracking app! Built through UCLA DevX. Currently in closed beta.",
+      projectDesc:
+        "",
       footerLink: [
         {
           name: "Visit Website",
-          url: "https://retune.ucladevx.com/"
-        }
-        //  you can add extra buttons here.
-      ]
-    },
-    {
-      image: require("./assets/images/HUGlogo.png"),
-      projectName: "HiddenUnderGround",
-      projectDesc: "Improving PPC marketing for small businesses. Built UI features and basic ML integrations. Currently in GTM.",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "https://www.hiddenunderground.com/"
+          url: "https://retuneapp.com/"
         }
       ]
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: true
 };
 
 const contractProjects = {
@@ -369,8 +350,7 @@ const achievementSection = {
 
 const blogSection = {
   title: "Articles",
-  subtitle:
-    "My yearly July 31st publications",
+  subtitle: "",
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
@@ -438,6 +418,78 @@ const contactInfo = {
   email_address: "saadpasta70@gmail.com"
 };
 
+const miscSection = {
+  display: true,
+  title: "More About Me",
+  polaroids: [
+    {
+      caption: "July 4th 2026",
+      image: require("./assets/images/polaroid-4.png"),
+      position: {x: -50, y: -44, rotate: 0, zIndex: 10}
+    },
+    {
+      caption: "Polaroid 5",
+      image: require("./assets/images/polaroid-5.png"),
+      position: {x: 0, y: -40, rotate: 0, zIndex: 20}
+    },
+    {
+      caption: "Polaroid 6",
+      image: require("./assets/images/polaroid-6.png"),
+      position: {x: 44, y: -42, rotate: 0, zIndex: 30}
+    },
+    {
+      caption: "Polaroid 7",
+      image: require("./assets/images/polaroid-7.png"),
+      position: {x: -46, y: 30, rotate: 0, zIndex: 40}
+    },
+    {
+      caption: "Polaroid 9",
+      image: require("./assets/images/polaroid-9.png"),
+      position: {x: 2, y: 26, rotate: 0, zIndex: 50}
+    },
+    {
+      caption: "Polaroid 8",
+      image: require("./assets/images/polaroid-8.png"),
+      position: {x: 46, y: 32, rotate: 0, zIndex: 60}
+    },
+    {
+      caption: "Polaroid 10",
+      image: require("./assets/images/polaroid-10.png"),
+      position: {x: -40, y: -20, rotate: 0, zIndex: 15}
+    },
+    {
+      caption: "Polaroid 11",
+      image: require("./assets/images/polaroid-11.png"),
+      position: {x: 10, y: -28, rotate: 0, zIndex: 25}
+    },
+    {
+      caption: "Polaroid 13",
+      image: require("./assets/images/polaroid-13.png"),
+      position: {x: 38, y: 8, rotate: 0, zIndex: 35}
+    },
+    {
+      caption: "Polaroid 12",
+      image: require("./assets/images/polaroid-12.png"),
+      position: {x: -30, y: 18, rotate: 0, zIndex: 45}
+    },
+    {
+      caption: "Polaroid 14",
+      image: require("./assets/images/polaroid-14.png"),
+      position: {x: 18, y: 40, rotate: 0, zIndex: 55}
+    },
+    {
+      caption: "Polaroid 15",
+      image: require("./assets/images/polaroid-15.png"),
+      position: {x: -8, y: 36, rotate: 0, zIndex: 65}
+    }
+  ],
+  funFacts: [
+    {value: "Silver 3", label: "League of Legends Rank"},
+    {value: "22%", label: "Competitive Spikeball Winrate"},
+    {value: "157", label: "Beli Spots Rated in 2026"}
+  ]
+};
+
 // Twitter Section
 
 const twitterDetails = {
@@ -464,6 +516,7 @@ export {
   talkSection,
   podcastSection,
   contactInfo,
+  miscSection,
   twitterDetails,
   isHireable,
   resumeSection
