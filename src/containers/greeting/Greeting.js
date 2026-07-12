@@ -1,7 +1,6 @@
 import React from "react";
 import "./Greeting.scss";
 import {greeting, socialMediaLinks} from "../../portfolio";
-import placeholderHeadshot from "../../assets/images/placeholder-headshot.svg";
 import headshot from "../../assets/images/headshot.png";
 
 const SOCIAL_ICONS = [
