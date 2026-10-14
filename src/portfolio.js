@@ -176,7 +176,7 @@ const workExperiences = {
       role: "Software Engineer Intern",
       company: "Roblox",
       companylogo: require("./assets/images/Robloxlogo.jpg"),
-      date: "Jun 2025 - Present",
+      date: "Jun 2026 - Sep 2026",
       desc: "Creator Data Services",
       descBullets: [
         "High-throughput data types for Roblox Luau"
